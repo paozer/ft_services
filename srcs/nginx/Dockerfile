@@ -1,8 +1,11 @@
 FROM alpine:latest
 
-# --no-cache is equivalent to apk update && later rm cache
-RUN apk add --no-cache nginx
-# RUN apk add --no-cache vim
-# nginx executable @ usr/sbin/
+RUN apk add openrc nginx --no-cache
+RUN mkdir -p /run/nginx
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY conf/nginx.conf /etc/nginx/nginx.conf
+COPY www/index.html /var/www/localhost/htdocs/index.html
+
+EXPOSE 80 443
+
+ENTRYPOINT nginx;
