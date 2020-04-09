@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk add openrc nginx --no-cache
+RUN apk add nginx --no-cache
 RUN mkdir -p /run/nginx
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
