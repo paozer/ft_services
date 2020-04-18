@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+spec:
+  selector:
+    matchLabels:
+      app: services
+  template:
+    metadata:
+      labels:
+        app: services
+    spec:
+      containers:
+      - image: wordpress:v1
+        name: wordpress
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 80
+        volumeMounts:
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: wordpress-data
+          mountPath: "/var/www/html"
+        - name: wordpress-config
+          mountPath: /var/www/localhost/htdocs/wp-config.php
+          subPath: wp-config.php
+          readOnly: true
+      volumes:
+      - name: wordpress-config
+        configMap:
+          name: wordpress-cnf
+      - name: wordpress-data
+        persistentVolumeClaim:
+          claimName: wordpress-pvc

@@ -1,16 +1,8 @@
 FROM alpine:latest
 
-RUN apk add openrc \
-	lighttpd \
-	php7 php7-openssl php7-cgi php7-xml php7-pdo php7-mcrypt php7-session php7-mysqli php7-zlib php7-json \
-	--no-cache
+COPY srcs/setup.sh /tmp/
+RUN /tmp/setup.sh && rm /tmp/setup.sh
 
-RUN cd /tmp && wget https://wordpress.org/latest.tar.gz \
-	&& tar -xzf latest.tar.gz && mv wordpress /var/www/localhost/htdocs
+EXPOSE 80 5050
 
-COPY srcs/wp-config.php /var/www/localhost/htdocs/wordpress
-COPY srcs/setup.sh /tmp/setup.sh
-
-EXPOSE 80
-
-ENTRYPOINT sh /tmp/setup.sh && lighttpd -D -f /etc/lighttpd/lighttpd.conf
+ENTRYPOINT ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]

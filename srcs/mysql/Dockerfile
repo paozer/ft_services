@@ -1,7 +1,11 @@
 FROM alpine:latest
 
-RUN apk add mysql mysql-client openrc --no-cache
+RUN apk add mysql mysql-client --no-cache
 
-COPY setup.sh /tmp/setup.sh
+COPY /srcs/my.cnf /etc/mysql/
+COPY /srcs/startup.sh /
+COPY /srcs/setup.sh /
 
-ENTRYPOINT sh /tmp/setup.sh
+EXPOSE 3306
+
+ENTRYPOINT ["/startup.sh"]

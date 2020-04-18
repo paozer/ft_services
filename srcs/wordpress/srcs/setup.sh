@@ -1,11 +1,18 @@
-sed -i 's/\/run\/lighttpd.pid/\/run\/lighttpd\/php-fast-cgi.socket/g' /etc/lighttpd/lighttpd.conf
+#!/bin/sh
+
+apk add lighttpd php7 php-gettext php-session php7-common php7-iconv php7-json php7-gd php7-curl php7-xml php7-mysqli php7-imap php7-cgi fcgi php7-pdo php7-pdo_mysql php7-soap php7-xmlrpc php7-posix php7-mcrypt php7-gettext php7-ldap php7-ctype php7-dom --no-cache
+
 sed -i 's/#   include "mod_fastcgi.conf"/include "mod_fastcgi.conf"/g' /etc/lighttpd/lighttpd.conf
 sed -i 's/usr\/bin\/php-cgi/usr\/bin\/php-cgi7/g' /etc/lighttpd/mod_fastcgi.conf
 
-# mkdir -p /var/www/localhost/htdocs/tmp
-# chmod 755 /var/www/localhost/htdocs/tmp
-# chmod 755 -R /var/www/localhost/htdocs/*
+mkdir -p /var/www/localhost/htdocs/tmp
+chmod 777 /var/www/localhost/htdocs/tmp
 
 mkdir -p /var/run/lighttpd
 touch /var/run/lighttpd/php-fastcgi.socket
 chown -R lighttpd:lighttpd /var/run/lighttpd
+
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+mv wordpress/* /var/www/localhost/htdocs/
+rm latest.tar.gz
