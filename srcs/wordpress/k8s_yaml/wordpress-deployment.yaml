@@ -2,24 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
+  labels:
+    app: wordpress
 spec:
   selector:
     matchLabels:
-      app: services
+      app: wordpress
   template:
     metadata:
       labels:
-        app: services
+        app: wordpress
     spec:
       containers:
       - image: wordpress:v1
         name: wordpress
         imagePullPolicy: Never
         ports:
-          - containerPort: 80
-        volumeMounts:
-        securityContext:
-          privileged: true
+          - containerPort: 5050
         volumeMounts:
         - name: wordpress-data
           mountPath: "/var/www/html"
