@@ -16,8 +16,10 @@ echo   "CREATE DATABASE wordpress;
 		CREATE USER 'wp-admin'@'%' IDENTIFIED BY 'password';
         GRANT ALL PRIVILEGES ON wordpress.* TO 'wp-admin'@'%' WITH GRANT OPTION;
         DROP DATABASE test;
-        FLUSH PRIVILEGES;" >> tmpfile
+        FLUSH PRIVILEGES;" > tmpfile
 
 /usr/bin/mysql < tmpfile
+# /usr/bin/mysql wordpress < /mysqldump.sql
 rm -f tmpfile
+rm -f /mysqldump.sql
 rm -- "$0"

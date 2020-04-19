@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-cnf
+  labels:
+    app: mysql
+data:
+  my.cnf: |
+    [mysqld]
+    port = 3306
+    datadir = /var/lib/mysql
+    log-bin = /var/lib/mysql/mysql-bin
+    bind-address = 0.0.0.0
+    skip-networking = false

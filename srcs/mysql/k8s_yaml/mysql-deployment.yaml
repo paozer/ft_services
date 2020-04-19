@@ -2,15 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  labels:
+    app: mysql
 spec:
   selector:
     matchLabels:
-      app: services
-  minReadySeconds: 5
+      app: mysql
   template:
     metadata:
       labels:
-        app: services
+        app: mysql
     spec:
       containers:
       - image: mysql:v1
@@ -21,9 +22,14 @@ spec:
         volumeMounts:
           - name: mysql-data
             mountPath: /var/lib/mysql
-        securityContext:
-          privileged: true
+          - name: mysql-config
+            mountPath: /etc/mysql/my.cnf
+            subPath: my.cnf
+            readOnly: true
       volumes:
         - name: mysql-data
           persistentVolumeClaim:
             claimName: mysql-pvc
+        - name: mysql-config
+          configMap:
+            name: mysql-cnf
