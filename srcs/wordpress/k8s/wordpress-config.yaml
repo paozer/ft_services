@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wordpress-cnf
+  name: wordpress
   labels:
     app: wordpress
 data:
@@ -10,7 +10,7 @@ data:
     define('DB_NAME', 'wordpress');
     define('DB_USER', 'wp-admin');
     define('DB_PASSWORD', 'password');
-    define('DB_HOST', 'mysql-svc');
+    define('DB_HOST', 'mysql');
     define('DB_CHARSET', 'utf8');
     define('DB_COLLATE', '');
 

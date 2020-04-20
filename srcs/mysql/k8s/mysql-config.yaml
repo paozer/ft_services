@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mysql-cnf
+  name: mysql
   labels:
     app: mysql
 data:

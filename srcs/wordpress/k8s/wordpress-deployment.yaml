@@ -14,8 +14,8 @@ spec:
         app: wordpress
     spec:
       containers:
-      - image: wordpress:v1
-        name: wordpress
+      - name: wordpress
+        image: wordpress:v1
         imagePullPolicy: Never
         ports:
           - containerPort: 5050
@@ -29,7 +29,7 @@ spec:
       volumes:
       - name: wordpress-config
         configMap:
-          name: wordpress-cnf
+          name: wordpress
       - name: wordpress-data
         persistentVolumeClaim:
-          claimName: wordpress-pvc
+          claimName: wordpress

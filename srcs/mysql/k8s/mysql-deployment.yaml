@@ -14,8 +14,8 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: mysql:v1
-        name: mysql
+      - name: mysql
+        image: mysql:v1
         imagePullPolicy: Never
         ports:
         - containerPort: 3306
@@ -29,7 +29,7 @@ spec:
       volumes:
         - name: mysql-data
           persistentVolumeClaim:
-            claimName: mysql-pvc
+            claimName: mysql
         - name: mysql-config
           configMap:
-            name: mysql-cnf
+            name: mysql
