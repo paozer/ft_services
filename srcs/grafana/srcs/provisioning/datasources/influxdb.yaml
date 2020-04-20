@@ -1,27 +1,14 @@
 apiVersion: 1
-
 datasources:
-- name: Analysis Server
+- name: influxdb
   orgId: 1
   type: influxdb
   access: proxy
-  url: http://influxdb-service:8086
+  url: http://influxdb:8086
   database: telegraf
   isDefault: false
   version: 1
   editable: false
   basicAuth: true
   basicAuthUser: admin
-  basicAuthPassword: password
-- name: Gatling
-  orgId: 1
-  type: influxdb
-  access: proxy
-  url: http://influxdb-service:8086
-  database: gatling
-  isDefault: true
-  version: 1
-  editable: false
-  basicAuth: true
-  basicAuthUser: user
   basicAuthPassword: password

@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana-deployment
+  name: grafana
+  labels:
+    app: grafana
 spec:
   selector:
     matchLabels:
       app: grafana
-  minReadySeconds: 5
   template:
     metadata:
       labels:
         app: grafana
     spec:
       containers:
-        - image: grafana:v1
-          name: grafana
+        - name: grafana
+          image: grafana:v1
           imagePullPolicy: Never
           volumeMounts:
-            - mountPath: /etc/grafana/grafana.ini
-              name: grafana-config
+            - name: grafana-config
               subPath: grafana.ini
+              mountPath: /etc/grafana/grafana.ini
               readOnly: true
           envFrom:
             - secretRef:
-                name: grafana-secrets
+                name: grafana
       volumes:
         - name: grafana-config
           configMap:
-              name: grafana-config
-      restartPolicy: Always
+            name: grafana
