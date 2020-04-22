@@ -18,6 +18,7 @@ spec:
         image: nginx:v1
         imagePullPolicy: Never
         ports:
+        - containerPort: 22
         - containerPort: 80
         - containerPort: 443
         volumeMounts:
