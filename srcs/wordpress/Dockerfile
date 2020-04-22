@@ -5,4 +5,5 @@ RUN /tmp/setup.sh && rm /tmp/setup.sh
 
 EXPOSE 5050
 
-ENTRYPOINT ["lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
+# -D = dont go to background
+ENTRYPOINT ["/usr/sbin/lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]
