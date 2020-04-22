@@ -19,7 +19,7 @@ echo   "CREATE DATABASE wordpress;
         FLUSH PRIVILEGES;" > tmpfile
 
 /usr/bin/mysql < tmpfile
-# /usr/bin/mysql wordpress < /mysqldump.sql
+/usr/bin/mysql wordpress < /wp.sql
 rm -f tmpfile
-rm -f /mysqldump.sql
+rm -f /wp.sql
 rm -- "$0"

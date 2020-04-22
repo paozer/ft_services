@@ -2,10 +2,10 @@ FROM alpine:latest
 
 RUN apk add mysql mysql-client --no-cache
 
-COPY /srcs/mysqldump.sql /
-COPY /srcs/startup.sh /
+COPY /srcs/wp.sql /
+COPY /srcs/entrypoint.sh /
 COPY /srcs/setup.sh /
 
 EXPOSE 3306
 
-ENTRYPOINT ["/startup.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
