@@ -1,5 +1,6 @@
 FROM alpine:latest
 
+COPY srcs/wordpress.tar.gz /tmp/
 COPY srcs/setup.sh /tmp/
 RUN /tmp/setup.sh && rm /tmp/setup.sh
 

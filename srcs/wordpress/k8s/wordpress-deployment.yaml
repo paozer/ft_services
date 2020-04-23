@@ -22,10 +22,10 @@ spec:
         volumeMounts:
         - name: wordpress-data
           mountPath: /var/www/html
-        - name: wordpress-config
-          mountPath: /var/www/localhost/htdocs/wp-config.php
-          subPath: wp-config.php
-          readOnly: true
+          #        - name: wordpress-config
+          #          mountPath: /var/www/localhost/htdocs/wp-config.php
+          #          subPath: wp-config.php
+          #          readOnly: true
       volumes:
       - name: wordpress-config
         configMap:
