@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 300Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps
+  labels:
+    app: ftps
+spec:
+  selector:
+    matchLabels:
+      app: ftps
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps
+        image: ftps:v1
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 20
+          - containerPort: 21
+          - containerPort: 31100
+          - containerPort: 31101
+          - containerPort: 31102
+          - containerPort: 31103
+          - containerPort: 31104
+          - containerPort: 31105
+        volumeMounts:
+          - name: ftps-data
+            mountPath: /ftps/data
+      volumes:
+        - name: ftps-data
+          persistentVolumeClaim:
+            claimName: ftps
