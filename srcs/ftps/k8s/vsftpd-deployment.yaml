@@ -33,12 +33,17 @@ spec:
         ports:
           - containerPort: 20
           - containerPort: 21
-          - containerPort: 31100
-          - containerPort: 31101
-          - containerPort: 31102
-          - containerPort: 31103
-          - containerPort: 31104
-          - containerPort: 31105
+          - containerPort: 21100
+          - containerPort: 21101
+          - containerPort: 21102
+          - containerPort: 21103
+          - containerPort: 21104
+          - containerPort: 21105
+          - containerPort: 21106
+          - containerPort: 21107
+          - containerPort: 21108
+          - containerPort: 21109
+          - containerPort: 21110
         volumeMounts:
           - name: ftps-data
             mountPath: /ftps/data

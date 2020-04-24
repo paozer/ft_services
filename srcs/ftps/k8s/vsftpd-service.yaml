@@ -7,21 +7,57 @@ metadata:
 spec:
   selector:
     app: ftps
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 20
-      name: why
+      targetPort: 20
+      name: whytho
+      protocol: TCP
     - port: 21
+      targetPort: 21
       name: connect
-    - port: 31100
+      protocol: TCP
+    - port: 21100
+      targetPort: 21100
       name: psv0
-    - port: 31101
+      protocol: TCP
+    - port: 21101
+      targetPort: 21101
       name: psv1
-    - port: 31102
+      protocol: TCP
+    - port: 21102
+      targetPort: 21102
       name: psv2
-    - port: 31103
+      protocol: TCP
+    - port: 21103
+      targetPort: 21103
       name: psv3
-    - port: 31104
+      protocol: TCP
+    - port: 21104
+      targetPort: 21104
       name: psv4
-    - port: 31105
+      protocol: TCP
+    - port: 21105
+      targetPort: 21105
       name: psv5
+      protocol: TCP
+    - port: 21106
+      targetPort: 21106
+      name: psv6
+      protocol: TCP
+    - port: 21107
+      targetPort: 21107
+      name: psv7
+      protocol: TCP
+    - port: 21108
+      targetPort: 21108
+      name: psv8
+      protocol: TCP
+    - port: 21109
+      targetPort: 21109
+      name: psv9
+      protocol: TCP
+    - port: 21110
+      targetPort: 21110
+      name: psv10
+      protocol: TCP
