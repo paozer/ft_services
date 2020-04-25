@@ -1,11 +1,11 @@
 FROM alpine:latest
 
+RUN apk add openssl vsftpd --no-cache
+
 COPY srcs/openssl.conf /etc/ssl/private/
 COPY srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
-COPY srcs/setup.sh /
-RUN  /setup.sh && rm -f /setup.sh
 COPY srcs/startup.sh /
 
-EXPOSE 20 21 21100-21110
+EXPOSE 20 21 21100-21104
 ENTRYPOINT ["/startup.sh"]
