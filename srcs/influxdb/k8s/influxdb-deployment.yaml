@@ -20,9 +20,9 @@ spec:
           ports:
             - containerPort: 8086
           livenessProbe:
-            initialDelaySeconds: 15
-            timeoutSeconds: 5
+            initialDelaySeconds: 20
             periodSeconds: 10
+            timeoutSeconds: 5
             httpGet:
               path: /ping
               port: 8086

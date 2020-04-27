@@ -17,6 +17,13 @@ spec:
         - name: grafana
           image: grafana:v1
           imagePullPolicy: Never
+          livenessProbe:
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            httpGet:
+              path: /api/health
+              port: 3000
           volumeMounts:
             - name: grafana-config
               subPath: grafana.ini

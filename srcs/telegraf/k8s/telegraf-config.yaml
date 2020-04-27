@@ -53,8 +53,6 @@ data:
       endpoint = "unix:///var/run/docker.sock"
 
       ## Set to true to collect Swarm metrics(desired_replicas, running_replicas)
-      ## Note: configure this in one of the manager nodes in a Swarm cluster.
-      ## configuring in multiple Swarm managers results in duplication of metrics.
       gather_services = false
 
       ## Containers to include and exclude. Collect all if empty. Globs accepted.
@@ -67,7 +65,7 @@ data:
       perdevice = true
 
       ## Whether to report for each container total blkio and network stats or not
-      total = false
+      total = true
 
       ## docker labels to include and exclude as tags.  Globs accepted.
       ## Note that an empty array for both will include all labels as tags

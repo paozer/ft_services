@@ -19,9 +19,13 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
-          # envFrom:
-          #   - secretRef:
-          #     name: mysql-secrets
+          livenessProbe:
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 10
+            httpGet:
+              scheme: HTTP
+              port: 5000
           volumeMounts:
             - name: phpmyadmin-config
               subPath: config.inc.php

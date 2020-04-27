@@ -20,9 +20,9 @@ spec:
         ports:
         - containerPort: 3306
         livenessProbe:
-          initialDelaySeconds: 15
-          timeoutSeconds: 5
+          initialDelaySeconds: 20
           periodSeconds: 10
+          timeoutSeconds: 5
           exec:
             command:
             - /usr/bin/mysqladmin

@@ -17,17 +17,18 @@ spec:
       - name: nginx
         image: nginx:v1
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 20
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 6
+          httpGet:
+            scheme: HTTPS
+            port: 443
         ports:
         - containerPort: 22
         - containerPort: 80
         - containerPort: 443
-        livenessProbe:
-          initialDelaySeconds: 10
-          timeoutSeconds: 5
-          periodSeconds: 10
-          httpGet:
-            scheme: HTTPS
-            port: 443
         volumeMounts:
           - name: nginx-config
             mountPath: /etc/nginx/nginx.conf

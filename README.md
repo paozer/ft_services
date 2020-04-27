@@ -27,6 +27,7 @@
 
 ### k8s doc
 * https://kubernetes.io/docs/
+* https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
 * https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html
 * https://stackoverflow.com/questions/49981601/difference-between-targetport-and-port-in-kubernetes-service-definition
 * https://medium.com/@zwhitchcox/matchlabels-labels-and-selectors-explained-in-detail-for-beginners-d421bdd05362
