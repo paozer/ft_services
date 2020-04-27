@@ -23,9 +23,18 @@ printf "\nwe will use the '$NAMESPACE' namespace\nctrl-C if you want to change i
 sleep 3
 
 if [[ $1 == "super-clean" ]]; then
+	eval $(minikube docker-env)
 	printf "deleting $NAMESPACE namespace... "
 	kubectl delete namespace $NAMESPACE > /dev/null 2>&1
 	printf "✅ \n"
+	for service in "${SERVICES[@]}"
+	do
+		printf "🐳 removing $service\n"
+		docker rmi -f $service:v1 > /dev/null 2>&1
+	done
+	printf "🐳 running container/system prune\n"
+	echo "y" | docker system prune -a -f > /dev/null
+	echo "y" | docker container prune -f > /dev/null
 	exit 0
 fi
 
