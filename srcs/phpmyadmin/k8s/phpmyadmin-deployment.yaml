@@ -19,18 +19,13 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 5000
-          # env:
-          #   - name: PMA_HOST
-          #     value: mysql-svc
-          #   - name: PMA_PORT
-          #     value: "3306"
           # envFrom:
           #   - secretRef:
           #     name: mysql-secrets
           volumeMounts:
             - name: phpmyadmin-config
               subPath: config.inc.php
-              mountPath: /usr/share/webapps/phpmyadmin/config.inc.php
+              mountPath: /var/www/localhost/htdocs/config.inc.php
               readOnly: true
       restartPolicy: Always
       volumes:
