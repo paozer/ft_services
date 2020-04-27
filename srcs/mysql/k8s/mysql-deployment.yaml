@@ -19,6 +19,14 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3306
+        livenessProbe:
+          initialDelaySeconds: 15
+          timeoutSeconds: 5
+          periodSeconds: 10
+          exec:
+            command:
+            - /usr/bin/mysqladmin
+            - ping
         volumeMounts:
           - name: mysql-data
             mountPath: /var/lib/mysql
