@@ -1,9 +1,9 @@
 FROM alpine:latest
 
-COPY srcs/setup.sh /tmp/
-RUN /tmp/setup.sh && rm /tmp/setup.sh
+COPY srcs/setup.sh /
+RUN /setup.sh && rm /setup.sh
 
 EXPOSE 5000
 
-# start php built-in server on port 5000 and doc root @ path
-ENTRYPOINT ["/usr/bin/php7", "-S", "0.0.0.0:5000", "-t", "/var/www/localhost/htdocs/phpmyadmin"]
+# -D don't go to background
+ENTRYPOINT ["/usr/sbin/lighttpd", "-D", "-f", "/etc/lighttpd/lighttpd.conf"]

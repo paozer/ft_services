@@ -7,7 +7,6 @@
 ### mysql & phpmyadmin
 * https://wiki.alpinelinux.org/wiki/Production_DataBases_:_mysql
 * https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html
-* https://www.sitepoint.com/taking-advantage-of-phps-built-in-server/
 
 ### nginx
 * https://wiki.alpinelinux.org/wiki/Nginx_with_PHP
