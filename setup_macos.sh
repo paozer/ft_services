@@ -60,7 +60,7 @@ printf "✅ \n"
 
 printf "\n✨ enabling and deploying ingress\n"
 minikube addons enable ingress > /dev/null
-kubectl apply -f srcs/ingress/ingress.yaml --namespace=$NAMESPACE> /dev/null
+kubectl apply -f srcs/ingress/ingress.yaml --namespace=$NAMESPACE > /dev/null
 
 # dirty way to update minikube ip for wp url/home in swl db to fit
 cp srcs/mysql/srcs/wp.sql.bak srcs/mysql/srcs/wp.sql
