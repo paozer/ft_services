@@ -13,5 +13,5 @@ spec:
     port: 5050
     targetPort: 5050
     # don't change nodePort value or type of port without
-    # adapting port in the srcs/mysql/srcs/wp.sql file
+    # adapting port (strg-f MINIKUBE_IP) in the srcs/mysql/srcs/wp.sql file
     nodePort: 30505
