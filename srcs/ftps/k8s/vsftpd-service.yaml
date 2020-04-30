@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     app: ftps
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 20
       targetPort: 20
@@ -24,16 +24,4 @@ spec:
     - port: 21101
       targetPort: 21101
       name: psv1
-      protocol: TCP
-    - port: 21102
-      targetPort: 21102
-      name: psv2
-      protocol: TCP
-    - port: 21103
-      targetPort: 21103
-      name: psv3
-      protocol: TCP
-    - port: 21104
-      targetPort: 21104
-      name: psv4
       protocol: TCP

@@ -26,12 +26,6 @@ spec:
             hostPort: 21100
           - containerPort: 21101
             hostPort: 21101
-          - containerPort: 21102
-            hostPort: 21102
-          - containerPort: 21103
-            hostPort: 21103
-          - containerPort: 21104
-            hostPort: 21104
         livenessProbe:
           initialDelaySeconds: 20
           periodSeconds: 10

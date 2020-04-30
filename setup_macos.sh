@@ -74,7 +74,7 @@ do
 	kubectl apply -R -f $PROJECT_DIR/srcs/$service/k8s --namespace=$NAMESPACE > /dev/null
 done
 
-printf "\n🌈 done...\n"
+printf "\n🌈 done...\n\n"
 
 ./display.sh $NAMESPACE
 
