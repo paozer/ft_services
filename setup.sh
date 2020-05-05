@@ -78,5 +78,5 @@ printf "\n🌈 done...\n\n"
 
 ./display.sh $NAMESPACE
 
-# kubectl exec -it $(kubectl get pod -l "app=nginx" -o name | sed 's/pods\///') -- /bin/sh -c "ps"
-# kubectl exec -it $(kubectl get pod -l "app=nginx" -o name | sed 's/pods\///') -- /bin/sh -c "kill pid"
+# kubectl exec -it -n pramella $(kubectl get pod -n pramella -l "app=nginx" -o name | sed 's/pods\///') -- /bin/sh -c "ps"
+# kubectl exec -it -n pramella $(kubectl get pod -n pramella -l "app=nginx" -o name | sed 's/pods\///') -- /bin/sh -c "kill pid"
