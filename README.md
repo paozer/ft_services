@@ -1,3 +1,10 @@
+### improvements
+* use secrets for ssh certificates
+* improve overall security
+* improve ftps security
+* add pod readiness probes
+* use metallb.universe.tf instead of ingress
+
 ## ressources
 ### wordpress
 * https://wiki.alpinelinux.org/wiki/WordPress (full stack guide)
